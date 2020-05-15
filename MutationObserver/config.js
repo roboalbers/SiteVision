@@ -4,7 +4,7 @@ $(function () {
     // Find the element that you want to "watch"
     var 
         target = document.querySelector('#soc-page-selector'),
-        contentNodeSelector = null;
+        contentNodeSelector = null,
         // create an observer instance
         observer = new MutationObserver(function (mutation) {
             if (mutation[0].attributeName === "data-value") {
