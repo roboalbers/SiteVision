@@ -3,12 +3,12 @@ $(function () {
     window.MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
     // Find the element that you want to "watch"
     var 
-        target = document.querySelector('#soc-page-selector'),
+        target = document.querySelector('#con-page-selector'),
         contentNodeSelector = null,
         // create an observer instance
         observer = new MutationObserver(function (mutation) {
             if (mutation[0].attributeName === "data-value") {
-                contentNodeSelector = document.getElementById('soc-content-node-selector');
+                contentNodeSelector = document.getElementById('con-content-node-selector');
                 if (typeof (contentNodeSelector) != 'undefined' && contentNodeSelector != null) {
                     contentNodeSelector.parentNode.parentNode.parentNode.remove();
                 }
@@ -22,7 +22,7 @@ $(function () {
                         var el =
                             '<div class="panel-body"><div class="form-group">' +
                             '<label>Välj innehållsyta</label>' +
-                            '<select id="soc-content-node-selector" name="single" class="form-control" name="myCustomName">';
+                            '<select id="con-content-node-selector" name="single" class="form-control" name="myCustomName">';
                             for(var i = 0; i < res.value.length; i++){
                                 el += res.value;
                             }
@@ -30,11 +30,11 @@ $(function () {
                             '</div></div>';
 
                         $('.panel').append($(el));
-                        $('body').trigger('setup-component', '#soc-content-node-selector');
+                        $('body').trigger('setup-component', '#con-content-node-selector');
                     });
                 }
                 else {
-                    contentNodeSelector = document.getElementById('soc-content-node-selector');
+                    contentNodeSelector = document.getElementById('con-content-node-selector');
                     if (typeof (contentNodeSelector) != 'undefined' && contentNodeSelector != null) {
                         contentNodeSelector.parentNode.parentNode.parentNode.remove();
                     }
